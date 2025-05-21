@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Dinámico</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 0 0 0 24px;
+        }
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+            display: flex;
+            gap: 24px;
+        }
+        nav li { 
+            margin: 0; 
+        }
+        nav a { 
+            display: block;
+            padding: 18px 0;
+            text-decoration: none; 
+            color: #333; 
+            font-size: 1.1em;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover { 
+            color: #0078d7; 
+            border-bottom: 2px solid #0078d7;
+            background: #f0f8ff;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; margin-top:32px; color:#0078d7; font-size:2.2em; letter-spacing:1px;">Menú Dinámico</h1>
+    <nav id="menu"></nav>
+    <script>
+        // Estructura de datos JSON 
+        const menuData = [
+            { "nombre": "102 Etiquetas", "url": "https://yajaira-g.github.io/102Etiquetas.github.io/" },
+            { "nombre": "Mi Biografia", "url": "https://yajaira-g.github.io/biografia.github.io/" },
+            { "nombre": "Generar Grafico", "url": "https://yajaira-g.github.io/mostrarGrafico.github.io/" },
+            { "nombre": "Formulario con multiples paginas", "url": "https://yajaira-g.github.io/formmultiplesPaginas.github.io/" },
+            { "nombre": "Menu modificable por usuario", "url": "https://yajaira-g.github.io/menuModporUsuario.github.io/" },
+            { "nombre": "Menu con CSS", "url": "https://yajaira-g.github.io/formmultiplesPaginas.github.io/" },
+            { "nombre": "Generar QR", "url": "https://yajaira-g.github.io/generarQR.github.io/" },
+            { "nombre": "Validador Cedula", "url": "https://yajaira-g.github.io/validarcedula.github.io/" },
+            { "nombre": "Formulario con BD", "url": "https://yajaira-g.github.io/fomularioBD.github.io/" }
+        ];
+
+        // Función del menú dinámico 
+        function generarMenu(menu) {
+            const nav = document.getElementById('menu');
+            const ul = document.createElement('ul');
+            menu.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = item.nombre;
+                a.href = item.url;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            nav.appendChild(ul);
+        }
+        
+        generarMenu(menuData);
+    </script>
+</body>
+</html>
